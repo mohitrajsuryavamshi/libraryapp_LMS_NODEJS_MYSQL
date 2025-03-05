@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+       - zip -r libappbuild.zip . -x "node_modules/*" "*.git/*" "*.env" ".gitignore"
+
+artifacts:
+  files:
+    - libappbuild.zip  # Ensure this matches your zip file name
+  discard-paths: no
