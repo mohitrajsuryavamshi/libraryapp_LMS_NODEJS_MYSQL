@@ -10,11 +10,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: UseNode@2
-  inputs:
-    versionSpec: '14.x'  # You can adjust the Node.js version as needed
-    addToPath: true
-
+- script: |
+    echo Installing Node.js...
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+  displayName: 'Install Node.js'
+  
 - script: |
     echo Installing dependencies...
     npm install
